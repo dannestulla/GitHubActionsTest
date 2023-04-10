@@ -23,6 +23,10 @@ jobs:
     needs: [lint, test] 
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install Packages
+        run: npm ci
       - name: Build app
         run: npm build
     
