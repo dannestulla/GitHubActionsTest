@@ -1,10 +1,17 @@
-name: Tutorial
-on: workflow_dispatch
+name: Test Project
+on: push
 jobs: 
   first_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Greeting
-        run: echo "Hello World!"
-      - name: Print Goodby
-        run: echo "Done - bye!"
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependecies
+        run:  npm ci
+      - name: Run tests
+        rum: npm test
+      
