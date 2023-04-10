@@ -6,8 +6,10 @@ jobs:
     steps: 
       - name: Get code
         uses: actions/checkout@v3
-      - name: Install ESLint
-        run: npm init @eslint/config
+      - name: Install Modules
+        run: yarn
+      - name: Run ESLint
+        run: eslint . --ext .js,.jsx,.ts,.tsx
       - name: Run Lint
         uses: wearerequired/lint-action@v2
         with:
