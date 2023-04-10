@@ -1,0 +1,8 @@
+name: Second Task
+on: issues
+jobs: 
+  first_job:
+  runs-on: ubuntu-latest
+  steps: 
+    - name: Show issue description
+      run: echo "{{ toJson(github.event.issue) }}" 
