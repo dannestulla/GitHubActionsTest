@@ -1,6 +1,11 @@
 name: Deploy Project
 on: push
 jobs: 
+  first_job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Starting
+        run: echo "Starting"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -15,6 +20,7 @@ jobs:
       - name: Run tests
         run: npm test
   deploy:
+    needs: [first_job, test] 
     runs-on: ubuntu-latest
     steps:
       - name: Get code
