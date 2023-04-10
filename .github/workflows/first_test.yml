@@ -9,19 +9,14 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Run Lint
-        uses: wearerequired/lint-action@v2
-        with:
-          eslint: true
-          prettier: true
+        run: npm run lint
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: Get vitest
-        run: npm install -D vitest
       - name: Run Tests
-        run: npm test
+        run: npm run test
   build:
     needs: [lint, test] 
     runs-on: ubuntu-latest
