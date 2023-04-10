@@ -6,6 +6,9 @@ jobs:
     steps: 
       - name: Run Lint
         uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
   test:
     runs-on: ubuntu-latest
     steps:
