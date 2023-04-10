@@ -1,0 +1,22 @@
+name: First Task
+on: push
+jobs: 
+  lint:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Run Lint
+        uses: actions/lint-action@v2
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Run Tests
+        run: npm test
+  build:
+    needs: [lint, test] 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build app
+        run: npm build
+    
