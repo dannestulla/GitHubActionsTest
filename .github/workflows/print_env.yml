@@ -1,0 +1,9 @@
+name: Print Env
+on: push
+jobs: 
+  print_enviroment:
+    enviroment: testing
+    runs-on: ubuntu-latest
+    steps:
+      name: Print environment secret
+      run: echo "enviroment $MY_VARIABLE"
